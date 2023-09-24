@@ -17,15 +17,7 @@ body{
     gap: 20px;
 }
 
-@media screen and (max-width: 900px) {
-    .main-section{
-        flex-direction: column;
-    }   
 
-    .song-section, .song-list-section{
-        margin: 30px;
-    }
-}
 
 
 
@@ -53,7 +45,7 @@ input[type=text]{
     align-items: center;
     padding: 70px;
     border-radius: 20px;
-    min-width: 250px;
+    min-width: 200px;
     max-width: 500px;
     
 }
@@ -110,10 +102,6 @@ h2{
     background-color: #000;
 }
 
-.text-div{
-    width: 100% !important;
-}
-
 
 .song-artwork{
     width: 100px;
@@ -143,3 +131,22 @@ h2{
     cursor: pointer;
 }
 
+@media screen and (max-width: 800px) {
+    .main-section{
+        flex-direction: column;
+    }   
+
+    .song-section, .song-list-section{
+        margin: 30px;
+    }
+
+    .playlistStyle{
+        display: grid;
+        grid-template-columns: 20px 80px 20px;
+        overflow-wrap: break-word;
+        align-items: center;
+        grid-gap: 100px;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+      }
+}

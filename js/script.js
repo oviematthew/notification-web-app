@@ -62,7 +62,7 @@ function addSong() {
              mainDiv.removeChild(songDelete);
              listHeader.removeChild(mainDiv);
              
-             // Decrement the song entry count
+             // Decrement the song entry count on removal of items
              songEntryCount--;
  
              // Check if all song entries are removed, then hide the playlist header
@@ -70,7 +70,8 @@ function addSong() {
                  playlistHeader.classList.add("hide");
              }
          }
- 
+
+        //  Remove item on click of delete button
          deleteButton.addEventListener("click", removeItem);
  
          // Append the elements to the song entry <div>
@@ -81,12 +82,12 @@ function addSong() {
          songEntry.appendChild(songDelete);
          songDelete.appendChild(deleteButton);
  
-         // Append the song entry <div> to the appropriate div
+         // Append the all 3 divs to the main div
          mainDiv.appendChild(songArtwork);
          mainDiv.appendChild(songEntry);
          mainDiv.appendChild(songDelete);
  
-         // Append to main div
+         // Append main div to one created in html
          listHeader.appendChild(mainDiv);
  
          // Increment the song entry count
