@@ -55,6 +55,17 @@ input[type=text]{
     border-radius: 20px;
     min-width: 250px;
     max-width: 500px;
+    
+}
+
+h2{
+    border-bottom: 1px solid #888;
+    padding-bottom: 10px;
+}
+
+.playlist-div {
+    margin-top: 30px;
+    
 }
 
 .song-list-div {
@@ -65,10 +76,21 @@ input[type=text]{
 }
 
 
-.flex{
-    display: flex;
-    align-items: center;
-    gap: 50px;
+.playlistStyle{
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  align-items: center;
+  grid-gap: 100px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+
+.addBorderBtm{
+    border-bottom: 1px solid #888;
+}
+
+.hide{
+    display: none;
 }
 
 #addbtn{
@@ -84,11 +106,18 @@ input[type=text]{
 
 #addbtn:hover{
     cursor: pointer;
+    scale: 1.2;
     background-color: #000;
 }
 
 .text-div{
     width: 100% !important;
+}
+
+
+.song-artwork{
+    width: 100px;
+    border-radius: 50%;
 }
 
 .song-header{
