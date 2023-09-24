@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Music App</title>
+
+    <!-- Link Manifest -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    
+    <section class="song-section">
+    
+    <img class="logo" src="./logo.png" alt="logo">
+
+    <div class="header-div">
+        <h1>My Music App</h1>
+    </div>
+
+    <div class="content-div">
+        <h2>Add New Song</h2>
+
+        <label for="songTitleInput">
+            Song Title
+            <br>
+            <input id="songTitleInput" type="text" required>
+        </label>
+        <br>
+
+        <label for="artistNameInput">
+            Artist
+            <br>
+            <input id="artistNameInput" type="text" required>
+        </label>
+
+        <br>
+
+        <button id="addbtn" type="button">Add Song</button>
+
+    </div>
+
+    <!-- Playlist Section -->
+    <div>
+    <h2>My Playlist</h2>
+    </div>
+    <div>
+        <div class="song-list-div">
+            <div id="list-header" class="list-header"></div>
+        </div>
+        
+    </div>
+</section>
+
+<script src="./js/script.js"></script>
+</body>
+</html>

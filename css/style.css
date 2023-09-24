@@ -1,0 +1,68 @@
+body{
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: #cf8e16;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    width: 200px;
+}
+
+.main-section{
+    display: flex;
+    gap: 20px;
+}
+
+@media screen and (max-width: 900px) {
+    .main-section{
+        flex-direction: column;
+    }   
+
+    .song-section, .song-list-section{
+        margin: 30px;
+    }
+}
+
+.song-section{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px;
+    border-radius: 20px;
+    min-width: 250px;
+    max-width: 500px;
+}
+
+.song-list-div {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    height: max-content;
+}
+
+
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+
+.delete-btn{
+    width: 20px;
+    transition: all ease-in-out 1s;
+}
+
+.delete-btn:hover{
+    fill: #cf8e16;
+    scale: 1.2;
+}
+
+.text-div{
+    width: 200px;
+}
