@@ -27,6 +27,25 @@ body{
     }
 }
 
+
+
+.content-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-text {
+    text-align: center;
+}
+
+input[type=text]{
+    width: 200px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    padding: 5px;
+}
 .song-section{
     background-color: white;
     display: flex;
@@ -52,17 +71,46 @@ body{
     gap: 50px;
 }
 
+#addbtn{
+    width: 200px;
+    height: 30px;
+    color: #fff;
+    background-color: #cf8e16;
+    border: 1px solid #cf8e16;
+    border-radius: 20px;
+    transition: all ease-in-out .4s;
+}
 
+
+#addbtn:hover{
+    cursor: pointer;
+    background-color: #000;
+}
+
+.text-div{
+    width: 100% !important;
+}
+
+.song-header{
+    font-size: 20px;
+    color: #cf8e16;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.song-parag {
+    font-size: 14px;
+    color: #5c5c5c;
+    margin-top: 5px;
+}
 .delete-btn{
     width: 20px;
-    transition: all ease-in-out 1s;
+    transition: all ease-in-out .4s;
 }
 
 .delete-btn:hover{
     fill: #cf8e16;
     scale: 1.2;
+    cursor: pointer;
 }
 
-.text-div{
-    width: 200px;
-}

@@ -13,16 +13,19 @@ function addSong() {
     if (songTitleValue !== "" && artistNameValue !== "") {
         // Create a new <div> element to wrap the song entry
         var mainDiv = document.createElement("div");
+        mainDiv.classList.add("text-div")
         var songEntry = document.createElement("div");
         var songDelete = document.createElement("div");
 
         // Create a new <h3> element for the song title
         var addedSongTitle = document.createElement("h3");
         addedSongTitle.innerHTML = songTitleValue;
+        addedSongTitle.classList.add("song-header")
 
         // Create a new <p> element for the artist name
         var addedArtistName = document.createElement("p");
         addedArtistName.innerHTML = artistNameValue;
+        addedArtistName.classList.add("song-parag")
 
         var breakLine = document.createElement("br")
 
