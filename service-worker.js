@@ -1,6 +1,7 @@
 const cacheName = 'my-music-app-cache-v1';
 
-self.addEventListener('install', function (event) {
+// Install service worker function
+self.addEventListener('install', (event) =>{
   console.log('Service Worker Installed', event);
 
   //Skip waiting phase
@@ -21,7 +22,9 @@ self.addEventListener('install', function (event) {
   );
 });
 
-self.addEventListener('activate', function (event) {
+
+// Activate service worker function
+self.addEventListener('activate', (event) => {
     console.log('[Service Worker] Activate:', event);
 
     // Claims control over all uncontrolled tabs/windows
@@ -40,7 +43,7 @@ self.addEventListener('activate', function (event) {
 
 
 // Fetch Function (using Cache with network fallback)
-self.addEventListener('fetch', function (event) {
+self.addEventListener('fetch', (event) =>{
   event.respondWith(
     caches.match(event.request)
       .then(function (response) {
