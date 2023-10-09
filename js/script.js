@@ -106,10 +106,10 @@ addbtn.addEventListener("click", addSong);
 // Service worker registration
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
-    .then(function (registration) {
+    .then( (registration) => {
     console.log('Registration successful. Scope is:', registration.scope);
     })
-    .catch(function (error) {
+    .catch((error) => {
     console.log('Registration failed. Error:', error);
     });
     }

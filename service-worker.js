@@ -25,7 +25,7 @@ self.addEventListener('install', (event) =>{
 
 // Activate service worker function
 self.addEventListener('activate', (event) => {
-    console.log('[Service Worker] Activate:', event);
+    console.log('Service Worker Activated:', event);
 
     // Claims control over all uncontrolled tabs/windows
     event.waitUntil(clients.claim());
