@@ -5,7 +5,7 @@ self.addEventListener('install', (event) =>{
   console.log('Service Worker Installed', event);
 
   //Skip waiting phase
-  self.skipWaiting()
+  // self.skipWaiting()
 
   //After successful installation, add the cache which will update the current one
   event.waitUntil(
