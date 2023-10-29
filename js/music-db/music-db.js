@@ -1,6 +1,5 @@
-// Import Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, doc, deleteDoc, getDocs, updateDoc } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js";
 
 class MusicDB {
     constructor() {
@@ -41,12 +40,25 @@ class MusicDB {
         });
     }
 
-    add(songTitle, artistName) {
+    add(songTitle, artistName, likes) {
         return addDoc(collection(this.db, 'songs'), {
             songTitle,
             artistName,
-            likes: 0,
+            likes,
         });
+    }
+
+    remove(docId) {
+        return deleteDoc(doc(this.db, 'songs', docId));
+    }
+
+    getAllSongs() {
+        return getDocs(collection(this.db, 'songs'));
+    }
+
+    updateLikes(docId, likes) {
+        const songRef = doc(this.db, 'songs', docId);
+        return updateDoc(songRef, { likes });
     }
 }
 
