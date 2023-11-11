@@ -1,11 +1,11 @@
-const cacheName = 'my-music-app-cache-v1';
+const cacheName = 'my-notification-app-cache-v1';
 
 // Install service worker function
 self.addEventListener('install', (event) =>{
   console.log('Service Worker Installed', event);
 
   //Skip waiting phase
-  // self.skipWaiting()
+  self.skipWaiting()
 
   //After successful installation, add the cache which will update the current one
   event.waitUntil(
@@ -43,11 +43,38 @@ self.addEventListener('activate', (event) => {
 
 
 // Fetch Function (using Cache with network fallback)
-self.addEventListener('fetch', (event) =>{
+self.addEventListener('fetch', function (event) {
   event.respondWith(
-    caches.match(event.request)
-      .then(function (response) {
-        return response || fetch(event.request);
-      })
+      caches.match(event.request)
+          .then(function (response) {
+              return response || fetch(event.request);
+          })
   );
 });
+
+self.addEventListener('notificationclick', function (event) {
+  const action = event.action;
+  const title = event.notification.title;
+
+  if (action === 'agree') {
+      clients.matchAll().then(clients => {
+          clients.forEach(client => {
+              client.postMessage({ message: 'So we both agree on that!' });
+          });
+      });
+  } else if (action === 'disagree') {
+      clients.matchAll().then(clients => {
+          clients.forEach(client => {
+              client.postMessage({ message: 'Let\'s agree to disagree.' });
+          });
+      });
+  }
+
+  event.notification.close();
+});
+
+
+
+
+
+

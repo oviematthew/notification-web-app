@@ -22,48 +22,17 @@
 </head>
 <body>
     <!-- Main Section -->
-    <section class="song-section">
-        <!-- Logo -->
-        <img class="logo" src="./logo.png" alt="logo">
-        
-        <!-- Header Section -->
-        <div class="header-div">
-            <p class="welcome-text">Welcome to my music PWA App where you can add your favourite songs to this list and remove them as you like</p>
-        </div>
-
-        <div class="content-div">
-            <h2>Add New Song</h2>
-            <label for="songTitleInput">
-                Song Title
-                <br>
-                <input id="songTitleInput" type="text" placeholder="add a song title">
-            </label>
-            <br>
-
-            <label for="artistNameInput">
-                Artist
-                <br>
-                <input id="artistNameInput" type="text" placeholder="add an artist name">
-            </label>
-
-            <br>
-
-            <button id="addbtn" type="button">Add Song</button>
-            
-            <hr>
-        </div>
-        
-        <!-- Playlist Section -->
-        <div class="playlist-div">
-            <h2 id="playlist-header" class="hide">My Playlist</h2>
-        </div>
-
-        <div>
-            <div class="song-list-div">
-                <div id="list-header" class="list-header"></div>
-            </div>
-        </div>
-    </section>
+    <div class="app-shell">
+        <button id="requestPermission">Send Notifications</button>
+        <form id="notificationForm">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="body">Body:</label>
+            <textarea id="body" name="body"></textarea>
+            <button type="button" id="showNotification">Show Notification</button>
+        </form>
+        <div id="output"></div>
+    </div>
 
     <script type="module" src="./js/script.js"></script>
     <script src="./service-worker.js"></script>

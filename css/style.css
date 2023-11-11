@@ -1,158 +1,22 @@
 body {
-    height: 100vh;
-    overflow-y: scroll;
-    background-color: #cf8e16;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.logo {
-    width: 200px;
+.app-shell {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.song-section {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 70px;
-    border-radius: 20px;
-    min-width: 200px;
-    max-width: 500px;
-}
-
-.welcome-text {
-    text-align: center;
-}
-
-input[type="text"] {
-    width: 200px;
-    border-radius: 10px;
-    border: 2px solid black;
-    margin-bottom: 20px;
-    padding: 5px;
-}
-
-h2 {
-    border-bottom: 1px solid #888;
-    padding-bottom: 10px;
-}
-
-.playlist-div {
-    margin-top: 30px;
-}
-
-.song-list-div {
-    display: flex;
-    align-items: center;
-    gap: 100px;
-    height: max-content;
-}
-
-.playlistStyle {
-    display: grid;
-    grid-template-columns: 100px 100px 100px;
-    align-items: center;
-    grid-gap: 100px;
-    margin-bottom: 30px;
-    padding-bottom: 10px;
-}
-
-.addBorderBtm {
-    border-bottom: 1px solid #888;
-}
-
-.hide {
+#notificationForm {
     display: none;
 }
 
-#addbtn {
-    width: 200px;
-    height: 30px;
-    color: #fff;
-    background-color: #cf8e16;
-    border: 1px solid #cf8e16;
-    border-radius: 20px;
-    transition: all ease-in-out 0.4s;
-}
-
-#addbtn:hover {
-    cursor: pointer;
-    scale: 1.2;
-    background-color: #000;
-}
-
-.song-artwork {
-    width: 100px;
-    border-radius: 50%;
-}
-
-.song-header {
-    font-size: 20px;
-    color: #cf8e16;
+#output {
+    margin-top: 20px;
     font-weight: bold;
-    margin-bottom: 0;
-}
-
-.song-parag {
-    font-size: 14px;
-    color: #5c5c5c;
-    margin-top: 5px;
-}
-
-.delete-btn {
-    width: 20px;
-    transition: all ease-in-out 0.4s;
-}
-
-.delete-btn:hover {
-    fill: #cf8e16;
-    scale: 1.2;
-    cursor: pointer;
-}
-
-.like-btn {
-    font-size: 24px;
-    color: #cf8e16;
-    cursor: pointer;
-}
-
-.like-count {
-    font-size: 18px;
-    color: #cf8e16;
-    margin-left: 5px;
-}
-
-.song-likes {
-    display: flex;
-    align-items: center;
-}
-
-.like-text {
-    color: #000; 
-    font-weight: bold;
-    margin-right: 5px; 
-}
-
-@media screen and (max-width: 800px) {
-    .main-section {
-        flex-direction: column;
-    }
-
-    .song-section,
-    .song-list-section {
-        margin: 30px;
-    }
-
-    .playlistStyle {
-        display: grid;
-        grid-template-columns: 20px 80px 20px;
-        overflow-wrap: break-word;
-        align-items: center;
-        grid-gap: 100px;
-        margin-bottom: 30px;
-        padding-bottom: 10px;
-    }
 }
