@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Show notification on button click
+    
     // Show notification on button click
 showNotificationButton.addEventListener('click', function () {
     const title = titleInput.value;
@@ -68,7 +68,6 @@ showNotificationButton.addEventListener('click', function () {
         if (isNotificationPermissionGranted) {
             navigator.serviceWorker.ready.then(function (registration) {
                 registration.showNotification(title, options);
-                console.log("Notification Sent")
             });
         }
     }

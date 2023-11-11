@@ -57,7 +57,6 @@ self.addEventListener('notificationclick', function (event) {
   const title = event.notification.title;
 
   if (action === 'agree') {
-      console.log("agree")
       clients.matchAll().then(clients => {
           clients.forEach(client => {
               client.postMessage({ message: 'So we both agree on that!' });
