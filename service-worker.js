@@ -5,7 +5,7 @@ self.addEventListener('install', (event) =>{
   console.log('Service Worker Installed', event);
 
   //Skip waiting phase
-  self.skipWaiting()
+  // self.skipWaiting()
 
   //After successful installation, add the cache which will update the current one
   event.waitUntil(
@@ -16,7 +16,6 @@ self.addEventListener('install', (event) =>{
           '/index.html',
           '/js/script.js',
           '/css/style.css',
-          '/assets/icons/trash-can-solid.svg',
         ]);
       })
   );
@@ -52,11 +51,13 @@ self.addEventListener('fetch', function (event) {
   );
 });
 
+//listen for notification click
 self.addEventListener('notificationclick', function (event) {
   const action = event.action;
   const title = event.notification.title;
 
   if (action === 'agree') {
+      console.log("agree")
       clients.matchAll().then(clients => {
           clients.forEach(client => {
               client.postMessage({ message: 'So we both agree on that!' });

@@ -2,18 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const sendNotifBtn = document.getElementById('sendNotifBtn');
     const notificationForm = document.getElementById('notificationForm');
     const showNotificationButton = document.getElementById('showNotification');
-    const outputDiv = document.getElementById('displayDiv');
     const titleInput = document.getElementById('title');
     const bodyInput = document.getElementById('body');
+    const displayDiv = document.getElementById('displayDiv');
 
     let isNotificationPermissionGranted = false;
 
     notificationForm.style.display = "none";
 
     function checkNotificationPermission() {
-        if (!("Notification" in window)) {
-            alert("This browser does not support desktop notification");
-        } else if (Notification.permission === "granted") {
+        if (Notification.permission === "granted") {
             isNotificationPermissionGranted = true;
             notificationForm.style.display = "block";
             sendNotifBtn.style.display = 'none';
@@ -42,30 +40,44 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Show notification on button click
-    showNotificationButton.addEventListener('click', function () {
-        const title = titleInput.value;
-        const body = bodyInput.value;
+    // Show notification on button click
+showNotificationButton.addEventListener('click', function () {
+    const title = titleInput.value;
+    const body = bodyInput.value;
 
-        if (title === "") {
-            alert("Please enter a title.");
-        }else if (body === ""){
-            alert("Please enter the body.");
-        }else {
-            const options = {
-                body: body || '',
-                actions: [
-                    { action: 'agree', title: 'Agree' },
-                    { action: 'disagree', title: 'Disagree' }
-                ]
-            };
+    if (title === "") {
+        alert("Please enter a title.");
+    } else {
+        const options = {
+            body: body,
+            icon: '/logo.png',
+            actions: [
+                { 
+                action: 'agree', 
+                title: 'Agree' 
+                },
 
-            if (isNotificationPermissionGranted) {
-                navigator.serviceWorker.ready.then(function (registration) {
-                    registration.showNotification(title, options);
-                    console.log("Notification Sent")
-                });
-            }
+                { 
+                action: 'disagree', 
+                title: 'Disagree' 
+                }
+            ]
+        };
+
+        // if granted send notification
+        if (isNotificationPermissionGranted) {
+            navigator.serviceWorker.ready.then(function (registration) {
+                registration.showNotification(title, options);
+                console.log("Notification Sent")
+            });
         }
+    }
+});
+
+    // Listen for postMessage
+    navigator.serviceWorker.addEventListener('message', (event) => {
+        console.log('Message received from service worker:', event.data.message);
+        displayDiv.innerText = event.data.message;
     });
 });
 
@@ -81,3 +93,5 @@ if ('serviceWorker' in navigator) {
 } else {
     console.log("Service workers not supported");
 }
+
+
