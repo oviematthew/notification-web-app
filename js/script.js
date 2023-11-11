@@ -1,55 +1,73 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const requestPermissionButton = document.getElementById('requestPermission');
+    const sendNotifBtn = document.getElementById('sendNotifBtn');
     const notificationForm = document.getElementById('notificationForm');
     const showNotificationButton = document.getElementById('showNotification');
-    const outputDiv = document.getElementById('output');
+    const outputDiv = document.getElementById('displayDiv');
+    const titleInput = document.getElementById('title');
+    const bodyInput = document.getElementById('body');
 
     let isNotificationPermissionGranted = false;
 
-    // Check if notification permission is already granted
-    if (Notification.permission === 'granted') {
-        isNotificationPermissionGranted = true;
-        showNotificationButton.style.display = 'block';
-        requestPermissionButton.style.display = 'none';
+    notificationForm.style.display = "none";
+
+    function checkNotificationPermission() {
+        if (!("Notification" in window)) {
+            alert("This browser does not support desktop notification");
+        } else if (Notification.permission === "granted") {
+            isNotificationPermissionGranted = true;
+            notificationForm.style.display = "block";
+            sendNotifBtn.style.display = 'none';
+        } else if (Notification.permission !== "denied") {
+            Notification.requestPermission().then((permission) => {
+                if (permission === "granted") {
+                    isNotificationPermissionGranted = true;
+                    notificationForm.style.display = "block";
+                    sendNotifBtn.style.display = 'none';
+                }
+            });
+        }
     }
 
+    checkNotificationPermission();
+
     // Request permission on button click
-    requestPermissionButton.addEventListener('click', function () {
+    sendNotifBtn.addEventListener('click', function () {
         Notification.requestPermission().then(function (permission) {
             if (permission === 'granted') {
                 isNotificationPermissionGranted = true;
-                showNotificationButton.style.display = 'block';
-                requestPermissionButton.style.display = 'none';
+                notificationForm.style.display = "block";
+                sendNotifBtn.style.display = 'none';
             }
         });
     });
 
     // Show notification on button click
     showNotificationButton.addEventListener('click', function () {
-        const title = document.getElementById('title').value;
-        const body = document.getElementById('body').value;
+        const title = titleInput.value;
+        const body = bodyInput.value;
 
-        if (!title) {
-            outputDiv.textContent = 'Please enter a title.';
-            return;
-        }
+        if (title === "") {
+            alert("Please enter a title.");
+        }else if (body === ""){
+            alert("Please enter the body.");
+        }else {
+            const options = {
+                body: body || '',
+                actions: [
+                    { action: 'agree', title: 'Agree' },
+                    { action: 'disagree', title: 'Disagree' }
+                ]
+            };
 
-        const options = {
-            body: body || '',
-            actions: [
-                { action: 'agree', title: 'Agree' },
-                { action: 'disagree', title: 'Disagree' }
-            ]
-        };
-
-        if (isNotificationPermissionGranted) {
-            navigator.serviceWorker.ready.then(function (registration) {
-                registration.showNotification(title, options);
-            });
+            if (isNotificationPermissionGranted) {
+                navigator.serviceWorker.ready.then(function (registration) {
+                    registration.showNotification(title, options);
+                    console.log("Notification Sent")
+                });
+            }
         }
     });
 });
-
 
 // Service worker registration
 if ('serviceWorker' in navigator) {

@@ -1,7 +1,7 @@
 {
-    "short_name": "My Music App",
-    "name": "My Music Playlist - Add Your Your Favorite Songs",
-    "description": "This is a digital playlist used to add your favourite songs to listen to",
+    "short_name": "My Notificiations App",
+    "name": "Notificiations app to send Notificiations to users",
+    "description": "This is a Notificiations app to send Notificiations to users",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Music App</title>
+    <title>My Notifications App</title>
 
     <!-- Link Manifest -->
     <link rel="manifest" href="./manifest.json">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/style.css">
 
     <!-- icons -->
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon-16x16.png">
@@ -22,20 +23,32 @@
 </head>
 <body>
     <!-- Main Section -->
-    <div class="app-shell">
-        <button id="requestPermission">Send Notifications</button>
+    <div class="section">
+        <h1>Send Notifications</h1>
+        <button id="sendNotifBtn">Send Notifications</button>
+
         <form id="notificationForm">
-            <label for="title">Title:</label>
+           
+            <label for="title">Title:
+            <br>
             <input type="text" id="title" name="title" required>
-            <label for="body">Body:</label>
+            </label>
+            <br>
+
+            <label for="body">Body:
+            <br>
             <textarea id="body" name="body"></textarea>
-            <button type="button" id="showNotification">Show Notification</button>
+            </label>
+
+            <br>
+            <button type="button" id="showNotification">Show</button>
         </form>
-        <div id="output"></div>
+
+
+        <div id="displayDiv"></div>
     </div>
 
     <script type="module" src="./js/script.js"></script>
     <script src="./service-worker.js"></script>
-    <script type="module" src="./js/music-db/music-db.js"></script>
 </body>
 </html>
